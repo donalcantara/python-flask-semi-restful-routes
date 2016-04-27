@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>I'm feeling Semi-Restful</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				{% for user in users: %}
+				<h1>User {{user['id']}}</h1>
+				<p>This is further information for user {{user['id']}}</p>
+				        <h2>Full Name: {{user['name']}}</h2>
+				        <h2>Email: {{user['email']}}</h2>
+				        <h2>Created at: {{user['created_at']}}</h2>
+				<a href="/edituserpage/{{user['id']}}">Edit</a> | <a href="/delete/{{user['id']}}">Delete</a></td>
+				        {% endfor %}
+				<h4><a href="/adduserpage">Add a New User</a></h4>
+				<a href="/back">Go Back</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
