@@ -10,17 +10,16 @@ def _convert(data):
         return type(data)(map(_convert, data))
     else:
         return data
-# Create a class that will give us an object that we can use to connect to a database
+
 class MySQLConnection(object):
-    # init method with configurations.
+
     def __init__(self, db):
-        """ BEGIN DATABASE CONFIGURATIONS """
+
         self.config = {
             'user': 'root',
-            'password': 'root', # Change this for windows users
+            'password': 'root',
             'database': db,
             'host': 'localhost',
-            # comment out the line below for windows
             'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
         }
         self.conn = mysql.connector.connect(**self.config)
@@ -51,6 +50,6 @@ class MySQLConnection(object):
         string_escaper = self.conn.converter.escape
         escaped_string = string_escaper(query)
         return escaped_string
-# This is the module method to be called by the user in server.py. Make sure to provide the db name!
+
 def MySQLConnector(db):
     return MySQLConnection(db)
